@@ -29,7 +29,7 @@ public class ReflectorTest {
 
 
   @Test
-  public void testXuzy(){
+  public void testXuzyToReflector(){
     Reflector reflector = Reflector.forClass(Article.class);
     Assert.assertEquals(Integer.class,reflector.getSetterType("id"));
   }
