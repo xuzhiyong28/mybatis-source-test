@@ -14,6 +14,10 @@
         <result property="createTime" column="create_time"/>
     </resultMap>
 
+    <sql id="articleTable">
+        ${table_prefix}
+    </sql>
+
     <select id="findByAuthorAndCreateTime" resultType="Article">
         SELECT
             `id`, `title`, `author`, `content`, `create_time`
@@ -22,4 +26,8 @@
         WHERE
             `author` = #{author} AND `create_time` > #{createTime}
     </select>
+
+    <update id="updateAuthor" parameterType="java.util.HashMap">
+        update blog_article set author = #{author} where id = #{id}
+    </update>
 </mapper>
