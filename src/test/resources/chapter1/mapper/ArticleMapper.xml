@@ -5,7 +5,7 @@
 
 <mapper namespace="xyz.coolblog.chapter1.dao.ArticleDao">
 
-    <resultMap id="authorResult" type="Article">
+    <resultMap id="articleResult" type="Article">
         <id property="id" column="id"/>
         <id property="author" column="author_id"/>
         <result property="title" column="title"/>
