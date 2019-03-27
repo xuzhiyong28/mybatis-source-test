@@ -7,7 +7,7 @@
 
     <resultMap id="articleResult" type="Article">
         <id property="id" column="id"/>
-        <id property="author" column="author_id"/>
+        <result property="type" column="type"/>
         <result property="title" column="title"/>
         <result property="author" column="author_id"/>
         <result property="content" column="content"/>
@@ -20,14 +20,14 @@
 
     <select id="findByAuthorAndCreateTime" resultType="Article">
         SELECT
-            `id`, `title`, `author`, `content`, `create_time`
+            `id`, `title`, `author_id`, `content`, `create_time`
         FROM
-            `blog_article`
+            `article`
         WHERE
-            `author` = #{author} AND `create_time` > #{createTime}
+            `author_id` = #{author} AND `create_time` > #{createTime}
     </select>
 
     <update id="updateAuthor" parameterType="java.util.HashMap">
-        update blog_article set author = #{author} where id = #{id}
+        update <include refid="articleTable"/> set author = #{author} where id = #{id}
     </update>
 </mapper>
