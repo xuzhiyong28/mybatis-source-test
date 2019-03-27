@@ -37,7 +37,14 @@ public class MyBatisTest {
 
     @Test
     public void testNull(){
-        System.out.println("testNull");
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try{
+            ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
+            List<Article> list = articleDao.findByAuthorAndCreateTime("xxx","2019-10-10");
+            System.out.println(list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
