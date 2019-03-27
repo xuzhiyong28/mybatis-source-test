@@ -50,7 +50,8 @@ public class XPathParser {
 
   private Document document;
   private boolean validation;
-  private EntityResolver entityResolver;
+  private EntityResolver entityResolver; //用于加载本地DTD文件
+  //mybatis-config.xml中<properties>标签定义的键值对集合
   private Properties variables;
   private XPath xpath;
 
