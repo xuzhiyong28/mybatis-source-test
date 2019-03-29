@@ -7,10 +7,19 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 import xyz.coolblog.chapter1.dao.ArticleDao;
 import xyz.coolblog.chapter1.model.Article;
 
 import javax.sql.DataSource;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -71,6 +80,45 @@ public class MyBatisTest {
         } finally {
             session.commit();
             session.close();
+        }
+    }
+
+    @Test
+    public void XPathTest() throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        documentBuilderFactory.setValidating(true);
+        documentBuilderFactory.setIgnoringComments(true);
+        documentBuilderFactory.setIgnoringElementContentWhitespace(false);
+        documentBuilderFactory.setCoalescing(false);
+        documentBuilderFactory.setExpandEntityReferences(true);
+        DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
+        builder.setErrorHandler(new ErrorHandler() {
+            @Override
+            public void warning(SAXParseException exception) throws SAXException {
+
+            }
+
+            @Override
+            public void error(SAXParseException exception) throws SAXException {
+
+            }
+
+            @Override
+            public void fatalError(SAXParseException exception) throws SAXException {
+
+            }
+        });
+        String resource = "chapter1/book.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        Document document = builder.parse(inputStream);
+        XPathFactory factory = XPathFactory.newInstance();
+        //创建XPath对象
+        XPath xPath = factory.newXPath();
+        XPathExpression expr = xPath.compile("//book[author='xuzhiyong']/title/text()");
+        Object result = expr.evaluate(document, XPathConstants.NODESET);
+        NodeList nodeList = (NodeList) result;
+        for(int i = 0 ; i < nodeList.getLength() ; i++){
+            System.out.println(nodeList.item(i).getNodeValue());
         }
     }
 }

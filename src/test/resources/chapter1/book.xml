@@ -1,8 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <inventory>
     <book year="2000">
         <title>xuzy</title>
-        <author>rert</author>
-        <publisher>erwer</publisher>
+        <author>xuzhiyong</author>
+        <publisher>wangsu</publisher>
+        <isbn>234-2323</isbn>
+        <price>13.45</price>
+    </book>
+    <book year="2001">
+        <title>xuzy</title>
+        <author>xuzhiyong</author>
+        <publisher>wangsu</publisher>
+        <isbn>234-2323</isbn>
+        <price>13.45</price>
+    </book>
+    <book year="2002">
+        <title>xuzy</title>
+        <author>gaoyongshun</author>
+        <publisher>wangsu</publisher>
         <isbn>234-2323</isbn>
         <price>13.45</price>
     </book>

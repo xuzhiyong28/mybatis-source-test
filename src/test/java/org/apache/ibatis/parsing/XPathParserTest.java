@@ -22,6 +22,16 @@ import java.io.InputStream;
 
 import org.apache.ibatis.io.Resources;
 import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
 
 public class XPathParserTest {
 
@@ -52,5 +62,6 @@ public class XPathParserTest {
     String result = parser.evalString("/employee/@id");
     System.out.printf("result= " + result);
   }
+
 
 }
