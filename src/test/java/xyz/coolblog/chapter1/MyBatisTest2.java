@@ -35,6 +35,11 @@ public class MyBatisTest2 {
     }
 
     @Test
+    public void test(){
+        System.out.println("!!!!");
+    }
+
+    @Test
     public void testOne2One() {
         SqlSession session = sqlSessionFactory.openSession();
         try {

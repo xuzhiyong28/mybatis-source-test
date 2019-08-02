@@ -13,10 +13,10 @@
         <typeAlias type="xyz.coolblog.chapter1.model2.Article" alias="Article"/>
     </typeAliases>
 
-    <typeHandlers>
+    <!--<typeHandlers>
         <typeHandler javaType="xyz.coolblog.constant.ArticleTypeEnum"
             handler="xyz.coolblog.mybatis.ArticleTypeHandler"/>
-    </typeHandlers>
+    </typeHandlers>-->
 
     <environments default="development">
         <environment id="development">

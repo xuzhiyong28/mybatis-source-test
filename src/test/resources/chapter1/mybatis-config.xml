@@ -14,6 +14,9 @@
         <typeAlias alias="Article" type="xyz.coolblog.chapter1.model.Article"/>
     </typeAliases>
 
+    <typeHandlers>
+        <typeHandler handler="xyz.coolblog.chapter1.customTypeHandler.CustomeListTypeHandler" jdbcType="VARCAHR" javaType="java.util.List"></typeHandler>
+    </typeHandlers>
 
 
     <environments default="development">
