@@ -66,4 +66,11 @@ public class TypeAliasRegistryTest {
     typeAliasRegistry.registerAlias("foo", String.class);
   }
 
+  @Test
+  public void registerAliasesPackageName(){
+    TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
+    typeAliasRegistry.registerAliases("xyz.coolblog.chapter1.model");
+  }
+
+
 }
